@@ -35,25 +35,16 @@ export class App {
     config.addAuthorizeStep(new AuthStep());
     config.map([
       {
-        route: ['', 'welcome'],
-        name: 'welcome',
         moduleId: PLATFORM.moduleName('./welcome'),
-        nav: true,
-        title: 'Welcome'
+        route: ['', 'welcome'], name: 'welcome', nav: true, title: 'Welcome'
       },
       {
-        route: 'users',
-        name: 'users',
         moduleId: PLATFORM.moduleName('./users'),
-        nav: true,
-        title: 'Github Users'
+        route: 'users', name: 'users', nav: true, title: 'Github Users'
       },
       {
-        route: 'foo',
-        name: 'foo',
         moduleId: PLATFORM.moduleName('./users'),
-        nav: true,
-        title: 'Non-existent'
+        route: 'foo', name: 'foo', nav: true, title: 'Non-existent'
       },
     ]);
 
