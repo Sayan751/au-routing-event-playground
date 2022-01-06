@@ -19,14 +19,19 @@ export class App {
   public constructor(
     ea: EventAggregator,
   ) {
+    let e: $RouterEvent;
     ea.subscribe(RouterEvent.Success, (event: $RouterEvent) => {
-      console.log('Success', event.instruction.config.route);
+      console.log('Success', (e = event).instruction.config.route);
+      console.log('Success', event);
+      console.log('Success', event.instruction.router.currentInstruction.config.route);
     });
     ea.subscribe(RouterEvent.Canceled, (event: $RouterEvent) => {
       console.log('Canceled', event.instruction.config.route);
     });
     ea.subscribe(RouterEvent.Complete, (event: $RouterEvent) => {
       console.log('Complete', event.instruction.config.route);
+      console.log('Complete', Object.is(e, event));
+      console.log('Complete', event);
     });
   }
 
